@@ -12,11 +12,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+
+# ---- Members ----
+# -- Samantha Roberts --
+# -- Yoofi Williams --
+
+
 # ---- YOUR APP STARTS HERE ----
 # -- Import section --
 from flask import Flask
-# from flask import render_template
-# from flask import request
+from flask import render_template
+from flask import request
 
 
 # -- Initialization section --
@@ -27,4 +33,14 @@ app = Flask(__name__)
 @app.route('/')
 @app.route('/index')
 def index():
-    return "hello world"
+    return render_template('index.html')
+
+if __name__=="__main__":
+    app.run()
+
+# TODO: create a results.html file to be rendered in app.py
+# TODO: find out the states in the quiz
+# TODO: create a dictionary with state as key and answers as values
+# TODO: return a dictionary with the states as keys and correct / wrong as values
+# TODO: so if correct, css in result.html background is green else red
+# TODO: add a score display at bottom.

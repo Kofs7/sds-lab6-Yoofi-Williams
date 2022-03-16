@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>{% block title %}Results{% endblock %}</title>
+</head>
+<body>
+    {% block content %}
+        <div id="answers">
+            {% for mark in results %}
+                {% if results[mark] == False %}
+                    <p class="wrong">{{ans[mark]}}</p>
+                {% else %}
+                    <p class="correct">{{ans[mark]}}</p>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div id="scores">
+            {% if score < 80.0 %}
+                <p class="wrong">Score: {{score}}%</p>
+            {% else %}
+                <p class="correct">Score: {{score}}</p>
+            {% endif %}
+        </div>
+    {% endblock %}
+</body>
+</html>

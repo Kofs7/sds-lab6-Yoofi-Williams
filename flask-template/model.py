@@ -12,3 +12,25 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+def verify_capital(answers: dict) -> dict:
+    """
+    Takes in a dictionary with states as keys and user's answers as values.
+    
+    Attributes:
+        mark_scheme: dicitonary containing the correct answers of the quiz.
+        score: user's total score after quiz.
+        result: a dictionary containing the correct or wrong answers of the user on each question.
+    """
+    score = 0
+    mark_scheme = {'CA': 'Sacramento', 'TX': 'Austin', 'WA': 'Olympia', 'AK': 'Juneau', 'OR': 'Salem'}
+    result = {}
+
+    for state in answers:
+        if answers[state].lower().title() != mark_scheme[state]:
+            result[state] = False
+        else:
+            results[state] = True
+            score += 1
+    final_score = (score / 5) * 100
+    return result, final_score
+
