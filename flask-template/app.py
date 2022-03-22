@@ -32,11 +32,16 @@ app = Flask(__name__)
 # -- Routes section --
 @app.route('/')
 @app.route('/index')
-def index():
+def index():   
     return render_template('index.html')
+    
+@app.route('/result')
+def result():
+    return render_template('result.html')
 
 if __name__=="__main__":
     app.run()
+
 
 # TODO: create a results.html file to be rendered in app.py
 # TODO: find out the states in the quiz
