@@ -23,6 +23,7 @@
 from flask import Flask
 from flask import render_template
 from flask import request
+from model import verify_capital
 
 
 # -- Initialization section --
@@ -35,9 +36,23 @@ app = Flask(__name__)
 def index():   
     return render_template('index.html')
     
-@app.route('/result')
+@app.route('/result', methods=["POST", "GET"])
 def result():
-    return render_template('result.html')
+    if request.method == "GET":
+        return "Please complete the quiz!!"
+    else:
+        form_ans = {"WA": request.form['Washington DC'],
+                    "TX": request.form['Texas'],
+                    "AK": request.form['Alaska'],
+                    "CA": request.form['California'],
+                    "OR": request.form['Oregon'],
+                    }
+        for state in form_ans:
+            if form_ans[state] == '':
+                return "Please complete the quiz!!"
+        
+        final_result, score = verify_capital(form_ans)
+    return render_template('result.html', results=final_result, ans=form_ans, score=score)
 
 if __name__=="__main__":
     app.run()
