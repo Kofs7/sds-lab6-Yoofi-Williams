@@ -29,7 +29,7 @@ def verify_capital(answers: dict) -> dict:
         if answers[state].lower().title() != mark_scheme[state]:
             result[state] = False
         else:
-            results[state] = True
+            result[state] = True
             score += 1
     final_score = (score / 5) * 100
     return result, final_score
