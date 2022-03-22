@@ -9,10 +9,14 @@
 </head>
 <body>
     {% block content %}
+        <h1>Results</h1>
         <div id="answers">
             {% for mark in results %}
                 {% if results[mark] == False %}
-                    <p class="wrong">{{ans[mark]}}</p>
+                    <div id="wrap-ans">
+                        <p class="wrong">{{ans[mark]}}</p>
+                        <p id="rights">Ans: {{correct[mark]}}</p>
+                    </div>
                 {% else %}
                     <p class="correct">{{ans[mark]}}</p>
                 {% endif %}
@@ -23,7 +27,7 @@
             {% if score < 80.0 %}
                 <p class="wrong">Score: {{score}}%</p>
             {% else %}
-                <p class="correct">Score: {{score}}</p>
+                <p class="correct">Score: {{score}}%</p>
             {% endif %}
         </div>
     {% endblock %}

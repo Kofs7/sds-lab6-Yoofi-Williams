@@ -36,31 +36,23 @@ app = Flask(__name__)
 def index():   
     return render_template('index.html')
     
-@app.route('/result', methods=["POST", "GET"])
-def result():
+@app.route('/results', methods=["POST", "GET"])
+def results():
     if request.method == "GET":
         return "Please complete the quiz!!"
     else:
-        form_ans = {"WA": request.form['Washington DC'],
+        form_ans = {"WA": request.form['Washington'],
                     "TX": request.form['Texas'],
-                    "AK": request.form['Alaska'],
+                    "DE": request.form['Delaware'],
                     "CA": request.form['California'],
-                    "OR": request.form['Oregon'],
+                    "GA": request.form['Georgia'],
                     }
         for state in form_ans:
             if form_ans[state] == '':
                 return "Please complete the quiz!!"
         
-        final_result, score = verify_capital(form_ans)
-    return render_template('result.html', results=final_result, ans=form_ans, score=score)
+        final_result, score, answers = verify_capital(form_ans)
+    return render_template('results.html', results=final_result, ans=form_ans, score=score, correct=answers)
 
 if __name__=="__main__":
-    app.run()
-
-
-# TODO: create a results.html file to be rendered in app.py
-# TODO: find out the states in the quiz
-# TODO: create a dictionary with state as key and answers as values
-# TODO: return a dictionary with the states as keys and correct / wrong as values
-# TODO: so if correct, css in result.html background is green else red
-# TODO: add a score display at bottom.
+    app.run(debug=True)

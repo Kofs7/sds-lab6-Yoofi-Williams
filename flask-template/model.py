@@ -22,7 +22,7 @@ def verify_capital(answers: dict) -> dict:
         result: a dictionary containing the correct or wrong answers of the user on each question.
     """
     score = 0
-    mark_scheme = {'CA': 'Sacramento', 'TX': 'Austin', 'WA': 'Olympia', 'AK': 'Juneau', 'OR': 'Salem'}
+    mark_scheme = {'CA': 'Sacramento', 'TX': 'Austin', 'WA': 'Olympia', 'DE': 'Dover', 'GA': 'Atlanta'}
     result = {}
 
     for state in answers:
@@ -32,5 +32,5 @@ def verify_capital(answers: dict) -> dict:
             result[state] = True
             score += 1
     final_score = (score / 5) * 100
-    return result, final_score
+    return result, final_score, mark_scheme
 

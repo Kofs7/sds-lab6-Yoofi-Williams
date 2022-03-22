@@ -14,3 +14,63 @@
  * limitations under the License.
  */
 
+*{
+    margin:0;
+}
+h1{
+    margin: 20px 0 0 70px;
+}
+form, #answers{
+    margin: 40px 0 0 70px;
+}
+form ul li{
+    list-style: none;
+}
+.ques{
+    margin-bottom: 15px;
+    height: 35px;
+    font-size: 18px;
+}
+#btn{
+    position: relative;
+    margin-left: 65px;
+    height: 30px;
+    width: 60px;
+}
+#btn:hover{
+    background-color: green;
+    color: #fff;
+}
+.wrong{
+    border: 1px solid rgb(255,87,87); 
+    border-radius: 7px;
+    color: rgb(173,0,0); 
+    background-color: rgb(255,87,87);
+    width: 20%;
+}
+.correct{
+    border: 1px solid rgb(0,230,0); 
+    border-radius: 7px;
+    color: rgb(0,117,0); 
+    background-color: rgb(0,230,0);
+    width: 20%;
+}
+#wrap-ans{
+    display: flex;
+    justify-content: space-between;
+}
+#wrap-ans #rights{
+    margin-right: 54rem;
+}
+#answers p{
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 18px; 
+}
+#scores p{
+    margin-left: 20px;
+    width: 30%;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 25px;
+}
